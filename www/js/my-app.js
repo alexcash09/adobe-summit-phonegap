@@ -76,13 +76,15 @@ var mainView = myApp.addView('.view-main', {
 $$(document).on('deviceready', function deviceIsReady() {
   console.log('Device is ready!');
   if (navigator.connection && navigator.connection.type == Connection.NONE) {
-      $$('.fa-wifi').addClass('color-gray');     
+      console.log("device is connected to the internet");
+      $$('.fa-wifi').addClass('color-white');     
   }
   else {
+      console.log("device is not connect to internet");
       // It's connected, set a flag and icon colors
       offline = false;
       if (isIos) $$('.fa-wifi').addClass('color-green');
-      else $$('.fa-wifi').addClass('color-white');
+      else $$('.fa-wifi').addClass('color-gray');
   }
 
   document.addEventListener("offline", onOffline, false);
